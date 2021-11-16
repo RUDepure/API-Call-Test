@@ -47,15 +47,24 @@ namespace API_Call_Test
             string[] clearWord = new string[lines.Length];
             clearWord[0] = lines[0];
 
-            System.Console.WriteLine(clearWord[0]);
+            //System.Console.WriteLine(clearWord[0]);
 
             for (int i = 1; i < clearWord.Length; i++)
             {
-                clearWord[i] = lines[i].Remove(1, 2);
-                System.Console.WriteLine(clearWord[i]);
+                clearWord[i] = lines[i].Substring(lines[i].Length - (lines[i].Length - 3));
+                //clearWord[i] = lines[i].Remove(1, 2);
+                //System.Console.WriteLine(clearWord[i]);
             }
 
-            //Console.WriteLine(lines[3]);
+            Random r = new Random();
+            int rInt = r.Next(0, 1000);
+            int rInt2 = r.Next(0, 7);
+            int rInt3 = r.Next(0, 7);
+
+            string[] topText = { "mfw", "jesus christ", "read bottom text", "the cake", "jon is kill", "amogus", "super idol" };
+            string[] bottomText = { "mfw api", "it's jason bourne", "read upper text", "is a lie", "no", "amogus", "super idol" };
+
+            //Console.WriteLine(clearWord[rInt]);
 
 
             //foreach (var item in myMemes)
@@ -63,9 +72,12 @@ namespace API_Call_Test
             //    Console.WriteLine(item.Name);
             //}
 
-            //string meme = "You-Were-The-Chosen-One-Star-Wars";
-            //string imageLink = "https://ronreiter-meme-generator.p.rapidapi.com/meme?meme=" + meme + "&bottom=Bottom%20Text&top=Top%20Text&font=Impact&font_size=50&&rapidapi-key=ac024eea7bmsh2c4210b67971157p163a98jsn41384cf35050";
-            //Console.WriteLine(imageLink);
+            //string meme = clearWord[0];
+            //Console.WriteLine(meme);
+            string imageLink = "https://ronreiter-meme-generator.p.rapidapi.com/meme?meme=" + clearWord[rInt] + 
+                "&bottom=" + bottomText[rInt2] + "&top=" + topText[rInt3] +
+                "&font=Impact&font_size=50&rapidapi-key=ac024eea7bmsh2c4210b67971157p163a98jsn41384cf35050";
+            Console.WriteLine(imageLink);
         }
     }
 }
